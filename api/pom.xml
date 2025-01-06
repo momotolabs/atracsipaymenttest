@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.payments</groupId>
-	<artifactId>payments</artifactId>
+	<artifactId>api</artifactId>
 	<version>0.0.1</version>
 	<name>payments</name>
 	<description>test from payment</description>

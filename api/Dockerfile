@@ -1,11 +1,10 @@
-# Use an official Java runtime as a parent image
-FROM amazoncorretto:21.0.4-alpine3.18
+FROM amazoncorretto:21.0.4-alpine3.19
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/payments-0.0.1.jar app.jar
+COPY ./target/*.jar app.jar
 
 # Expose the port that the application will run on
 EXPOSE 8080

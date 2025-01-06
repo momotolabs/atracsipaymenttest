@@ -1,0 +1,27 @@
+services:
+  db-oracle:
+    image:  container-registry.oracle.com/database/free:latest
+    environment:
+      ORACLE_PASSWORD: secret
+    ports:
+      - "1521:1521"
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    depends_on:
+      - db-oracle
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@localhost:1521/FREE
+      - SPRING_DATASOURCE_USERNAME=develop
+      - SPRING_DATASOURCE_PASSWORD=secret
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - api
+    ports:
+      - "8081:80"
