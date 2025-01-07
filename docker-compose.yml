@@ -1,8 +1,9 @@
 services:
   db-oracle:
-    image:  container-registry.oracle.com/database/free:latest
+    image:  container-registry.oracle.com/database/free:23.5.0.0-lite
     environment:
-      ORACLE_PASSWORD: secret
+      ORACLE_PWD: secret
+      ORACLE_PDB: DEVELOP
     ports:
       - "1521:1521"
 
